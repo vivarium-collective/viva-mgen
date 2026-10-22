@@ -6,8 +6,11 @@
 set -euo pipefail
 WS_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 OUT="${1:-$WS_ROOT/reports/published/dashboard}"
-BASE_PATH="/viva-Mgen/dashboard"
-INTERACTIVE_URL="https://github.com/vivarium-collective/viva-Mgen"
+# GitHub Pages serves project sites at a lowercased repo path
+# (…/viva-mgen/), so the baked asset base-path must be lowercase too —
+# otherwise every /viva-Mgen/… asset 404s and the SPA renders unstyled.
+BASE_PATH="/viva-mgen/dashboard"
+INTERACTIVE_URL="https://github.com/vivarium-collective/viva-mgen"
 rm -rf "$OUT"
 PYTHONPATH="$WS_ROOT${PYTHONPATH:+:$PYTHONPATH}" \
   vivarium-workbench-publish \
