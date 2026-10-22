@@ -4,30 +4,10 @@ title: ParCa — parameter fitting (Karr 2012 FitConstants reproduction)
 created: '2026-09-13'
 status: complete
 phase: Evaluate
-question: 'Can viva-Mgen reproduce Karr 2012''s parameter calculator (FitConstants) — computing the per-gene
-  expression, decay and synthesis parameters the whole-cell model runs on from the real observed knowledge-base
-  data, rather than hand-tuned guesses — and are those fitted parameters metabolically feasible? '
-hypothesis: 'Starting from the experimentally observed gene expression (Weiner 2003, decoded from the
-  knowledge base) and the real per-gene half-lives, an analytic fit under the FitConstants constraints
-  (RNA mass, DnaA/FtsZ held, net supercoiling) yields a per-gene parameter panel that reproduces the paper''s
-  expression kinetics and whose implied metabolic demand the iPS189 network can supply. '
-objective: 'Run the mycoplasma_parca composite: compute the fitted per-gene panel from the decoded knowledge
-  base, report the fit summary (gene count, mRNA/rRNA half-lives, median synthesis rate), the metabolic
-  demand it implies, and the expression↔metabolism feasibility closure. '
-description: 'This is the UPSTREAM study the seven figure studies depend on — it produces the per-gene
-  expression/decay/synthesis parameters they consume (viva_mgen.parca, wired into viva_mgen.expression_defaults).
-  It is a native reproduction of Karr 2012 FitConstants: observed expression + per-gene half-lives are
-  decoded directly from the knowledge-base MCOS .mat (no MATLAB/Octave); the initialization + analytic
-  QP fit apply the real FitConstants linear constraints (RNA-mass balance, DnaA/FtsZ expression held,
-  net-supercoiling zero using the real ported constants); and the expression↔metabolism loop is closed
-  by verifying the iPS189 FBA network can supply the ribonucleotide and amino-acid precursor demand in
-  the fitted composition. Fidelity: genuine — every input is real decoded KB data; the nonlinear metabolism
-  resource coupling + heuristic refinement of the original fmincon are the reduced part. '
-baseline:
-- name: baseline
-  composite: viva_mgen.composites.mgen.mycoplasma_parca
-  params: {}
-variants: []
+question: 'Can viva-Mgen reproduce Karr 2012''s parameter calculator (FitConstants) — computing the per-gene expression, decay and synthesis parameters the whole-cell model runs on from the real observed knowledge-base data, rather than hand-tuned guesses — and are those fitted parameters metabolically feasible? '
+hypothesis: 'Starting from the experimentally observed gene expression (Weiner 2003, decoded from the knowledge base) and the real per-gene half-lives, an analytic fit under the FitConstants constraints (RNA mass, DnaA/FtsZ held, net supercoiling) yields a per-gene parameter panel that reproduces the paper''s expression kinetics and whose implied metabolic demand the iPS189 network can supply. '
+objective: 'Run the mycoplasma_parca composite: compute the fitted per-gene panel from the decoded knowledge base, report the fit summary (gene count, mRNA/rRNA half-lives, median synthesis rate), the metabolic demand it implies, and the expression↔metabolism feasibility closure. '
+description: 'This is the UPSTREAM study the seven figure studies depend on — it produces the per-gene expression/decay/synthesis parameters they consume (viva_mgen.parca, wired into viva_mgen.expression_defaults). It is a native reproduction of Karr 2012 FitConstants: observed expression + per-gene half-lives are decoded directly from the knowledge-base MCOS .mat (no MATLAB/Octave); the initialization + analytic QP fit apply the real FitConstants linear constraints (RNA-mass balance, DnaA/FtsZ expression held, net-supercoiling zero using the real ported constants); and the expression↔metabolism loop is closed by verifying the iPS189 FBA network can supply the ribonucleotide and amino-acid precursor demand in the fitted composition. Fidelity: genuine — every input is real decoded KB data; the nonlinear metabolism resource coupling + heuristic refinement of the original fmincon are the reduced part. '
 simulation_set:
 - name: baseline
   status: ran
@@ -53,8 +33,7 @@ expected_behavior:
   en: The fit covers the full M. genitalium gene set (~522 of 525 genes).
   observable: n_genes
   condition: 500 <= n_genes <= 525
-  rationale: Karr 2012 tracks all ~480 protein-coding genes plus tRNA/rRNA (525 in genes.csv); the panel
-    is computed over the full decoded set.
+  rationale: Karr 2012 tracks all ~480 protein-coding genes plus tRNA/rRNA (525 in genes.csv); the panel is computed over the full decoded set.
   measure:
     kind: derived_scalar
     field: n_genes
@@ -102,8 +81,7 @@ expected_behavior:
   en: The iPS189 network can supply the fitted precursor demand (loop closed).
   observable: closed_loop_feasible
   condition: 0.5 <= closed_loop_feasible <= 1.5
-  rationale: Closure — the fitted expression's ribonucleotide + amino-acid demand is supplyable by the
-    iPS189 FBA network alongside feasible growth (feasible = 1.0).
+  rationale: Closure — the fitted expression's ribonucleotide + amino-acid demand is supplyable by the iPS189 FBA network alongside feasible growth (feasible = 1.0).
   measure:
     kind: derived_scalar
     field: closed_loop_feasible
@@ -124,8 +102,7 @@ behavior_tests:
     high: 525
     provenance:
       kind: knowledge_base
-      note: Karr 2012 tracks all ~480 protein-coding genes plus tRNA/rRNA (525 total in genes.csv); the
-        panel is computed over the full decoded set.
+      note: Karr 2012 tracks all ~480 protein-coding genes plus tRNA/rRNA (525 total in genes.csv); the panel is computed over the full decoded set.
   requires_simulation: baseline
 - name: mrna-halflife-realistic
   classification: primary
@@ -181,8 +158,7 @@ behavior_tests:
     high: 1.5
     provenance:
       kind: model
-      note: Closure — the fitted expression's ribonucleotide + amino-acid demand is supplyable by the
-        iPS189 FBA network alongside feasible growth (feasible = 1.0).
+      note: Closure — the fitted expression's ribonucleotide + amino-acid demand is supplyable by the iPS189 FBA network alongside feasible growth (feasible = 1.0).
   requires_simulation: baseline
 visualizations:
 - name: parca-combined
@@ -216,3 +192,10 @@ embed_visualizations:
 - name: parca-d-closure
   url: /workspace/studies/parca-parameter-fitting/viz/parca_d_closure.html
   description: Expression↔metabolism closure — iPS189 precursor supply fluxes (feasible > 0).
+conditions:
+  baseline:
+    name: baseline
+    composite: viva_mgen.composites.mgen.mycoplasma_parca
+    params: {}
+  variants: []
+  model_settings: []

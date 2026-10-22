@@ -86,12 +86,6 @@ description: 'FAITHFUL BASELINE. The ingredient roster, per-species structures (
   structure and are placed as MW-sphere proxies or skipped.
 
   '
-baseline:
-- name: baseline
-  composite: viva_mgen.composites.structural.mgen_structural
-  params:
-    counts_source: maritan
-variants: []
 interventions: []
 expected_behavior:
 - name: structural-species-placed-at-abundance
@@ -175,3 +169,11 @@ visualizations:
 - name: baseline-vs-sim
   chart: viz/baseline_vs_sim.html
   render: python scripts/regen_structural_viz.py
+conditions:
+  baseline:
+    name: baseline
+    composite: viva_mgen.composites.structural.mgen_structural
+    params:
+      counts_source: maritan
+  variants: []
+  model_settings: []

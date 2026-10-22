@@ -74,11 +74,6 @@ description: 'REDUCED / representative fidelity. kcat is modelled as a multiplic
   dynamic_range = 0.864 (growth 0.136 at 0.01x rising to 1.000 at >=0.1x).
 
   '
-baseline:
-- name: baseline
-  composite: viva_mgen.composites.mgen.mycoplasma_genitalium
-  params: {}
-variants: []
 simulation_set:
 - name: baseline
   status: ran
@@ -354,14 +349,10 @@ embed_visualizations:
   description: 'Figure 7 subpanel: dynamic range.'
 - name: kcat-growth-curve
   url: /workspace/studies/fig7-kinetic-parameters/viz/kcat_growth_curve.html
-  description: Growth fraction vs flux-bound scale (kcat/Vmax proxy, log x) for the leucine-uptake target
-    and two secondary uptake reactions — a monotonic, saturating sigmoid (Fig 7E).
+  description: Growth fraction vs flux-bound scale (kcat/Vmax proxy, log x) for the leucine-uptake target and two secondary uptake reactions — a monotonic, saturating sigmoid (Fig 7E).
 provenance:
   kind: model
-  note: Karr et al. 2012, Fig 7E-G — predicted growth rate depends on an enzyme's kinetic parameter (kcat),
-    producing a sigmoidal growth-vs-kcat curve; tuning kcat reconciles model and experiment for lpdA,
-    deoD, thyA. Reproduced here at REDUCED fidelity with kcat as a multiplicative FBA flux-bound (Vmax)
-    proxy on a growth-limiting reaction (EX_leu_DASH_L_e), not explicit enzyme kinetics.
+  note: Karr et al. 2012, Fig 7E-G — predicted growth rate depends on an enzyme's kinetic parameter (kcat), producing a sigmoidal growth-vs-kcat curve; tuning kcat reconciles model and experiment for lpdA, deoD, thyA. Reproduced here at REDUCED fidelity with kcat as a multiplicative FBA flux-bound (Vmax) proxy on a growth-limiting reaction (EX_leu_DASH_L_e), not explicit enzyme kinetics.
 conclusion: 'The viva-Mgen cell reproduces Fig 7''s central kcat→growth law at reduced
 
   fidelity. Sweeping the growth-limiting leucine-uptake reaction
@@ -385,3 +376,10 @@ conclusion: 'The viva-Mgen cell reproduces Fig 7''s central kcat→growth law at
   modelled.
 
   '
+conditions:
+  baseline:
+    name: baseline
+    composite: viva_mgen.composites.mgen.mycoplasma_genitalium
+    params: {}
+  variants: []
+  model_settings: []

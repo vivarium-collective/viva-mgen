@@ -37,19 +37,7 @@ objective: 'Run the fig3_expression composite (transcription + translation + rna
   protein-to-mRNA ratio, and the fraction of panel genes expressed.
 
   '
-description: 'Now GENUINELY MODELED (not a reduced analog): a coordinate-resolved ChromosomeDynamicsReproductionProcess
-  bins the 580,070 bp chromosome, initiates RNA polymerases at gene sites (locus-tag-ordered positions)
-  and elongates them, advances two replisomes bidirectionally from oriC, places structural proteins (SMC/SSB/gyrase/topo/DnaA/TFs),
-  and detects+resolves polymerase-protein collisions. Reproduces Fig 3A (occupancy density), 3B (chromosome
-  exploration kinetics), 3C (% RNA expressed / t50), 3D (polymerase position kymograph), 3E (collision-frequency
-  matrix), 3F (collisions vs binding density). REDUCED fidelity: binned genome + approximate (locus-ordered)
-  gene coordinates + representative protein counts.'
-baseline:
-- name: baseline
-  composite: viva_mgen.composites.mgen.mycoplasma_genitalium
-  params:
-    seed: 0
-variants: []
+description: 'Now GENUINELY MODELED (not a reduced analog): a coordinate-resolved ChromosomeDynamicsReproductionProcess bins the 580,070 bp chromosome, initiates RNA polymerases at gene sites (locus-tag-ordered positions) and elongates them, advances two replisomes bidirectionally from oriC, places structural proteins (SMC/SSB/gyrase/topo/DnaA/TFs), and detects+resolves polymerase-protein collisions. Reproduces Fig 3A (occupancy density), 3B (chromosome exploration kinetics), 3C (% RNA expressed / t50), 3D (polymerase position kymograph), 3E (collision-frequency matrix), 3F (collisions vs binding density). REDUCED fidelity: binned genome + approximate (locus-ordered) gene coordinates + representative protein counts.'
 simulation_set:
 - name: baseline
   status: ran
@@ -367,8 +355,7 @@ embed_visualizations:
   description: Figure 3 reproduced — DNA–protein interactions, panels a–f as in Karr 2012.
 - name: fig3-a-occupancy
   url: /workspace/studies/fig3-expression/viz/fig3_a_occupancy.html
-  description: 'Fig 3A: circular chromosome binding-probability rings (all proteins / RNA pol / DnaA /
-    DNA pol).'
+  description: 'Fig 3A: circular chromosome binding-probability rings (all proteins / RNA pol / DnaA / DNA pol).'
 - name: fig3-b-explored
   url: /workspace/studies/fig3-expression/viz/fig3_b_explored.html
   description: 'Fig 3B: % chromosome explored over time — All, RNA pol, SMC, DNA pol, Gyrase.'
@@ -384,7 +371,12 @@ embed_visualizations:
 - name: fig3-f-collisions-vs-density
   url: /workspace/studies/fig3-expression/viz/fig3_f_collisions_vs_density.html
   description: 'Fig 3F: collisions vs DNA-binding density across cells.'
-conclusion: 'viva-Mgen reproduces the DNA-protein-interaction figure: RNA polymerase explores ~all of
-  the chromosome fast while the two replisomes cover it more slowly, and collisions are dominated by RNA
-  polymerase displacing SMC then SSB — the qualitative pattern of Karr 2012 Fig 3E. Coordinate-resolved
-  but reduced (binned, approximate gene positions).'
+conclusion: 'viva-Mgen reproduces the DNA-protein-interaction figure: RNA polymerase explores ~all of the chromosome fast while the two replisomes cover it more slowly, and collisions are dominated by RNA polymerase displacing SMC then SSB — the qualitative pattern of Karr 2012 Fig 3E. Coordinate-resolved but reduced (binned, approximate gene positions).'
+conditions:
+  baseline:
+    name: baseline
+    composite: viva_mgen.composites.mgen.mycoplasma_genitalium
+    params:
+      seed: 0
+  variants: []
+  model_settings: []

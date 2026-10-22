@@ -46,11 +46,6 @@ description: 'FULL FIDELITY for the growth/composition phenotype. Metabolism is 
   9.000 h, mass ratio 2.000 over the cycle, protein fraction 0.620 of dry mass.
 
   '
-baseline:
-- name: baseline
-  composite: viva_mgen.composites.mgen.mycoplasma_genitalium
-  params: {}
-variants: []
 simulation_set:
 - name: baseline
   status: ran
@@ -72,8 +67,7 @@ expected_behavior:
   en: The population median doubling time is ≈8.9 h, matching measured M. genitalium (Fig 2A/B).
   observable: doubling_time_h
   condition: 8.3 <= doubling_time_h <= 9.5
-  rationale: M. genitalium doubling time τ ≈ 9.0 h measured (Fig 2A); the simulated median is 8.9 h (Fig
-    2B). Test the exponential-fit doubling time falls in [8.3, 9.5] h.
+  rationale: M. genitalium doubling time τ ≈ 9.0 h measured (Fig 2A); the simulated median is 8.9 h (Fig 2B). Test the exponential-fit doubling time falls in [8.3, 9.5] h.
   measure:
     kind: derived_scalar
     field: doubling_time_h
@@ -85,8 +79,7 @@ expected_behavior:
   en: Dry mass doubles over one cell cycle (Fig 2B).
   observable: final_mass_ratio
   condition: 1.8 <= final_mass_ratio <= 2.2
-  rationale: A cell doubles its mass between birth and division (Karr 2012 Fig 2B). Test mass fold-change
-    ≈2 over the 9 h cycle.
+  rationale: A cell doubles its mass between birth and division (Karr 2012 Fig 2B). Test mass fold-change ≈2 over the 9 h cycle.
   measure:
     kind: derived_scalar
     field: final_mass_ratio
@@ -98,8 +91,7 @@ expected_behavior:
   en: Protein is the dominant dry-mass component (~62–75%), matching Morowitz 1962 (Fig 2C).
   observable: protein_fraction
   condition: 0.62 <= protein_fraction <= 0.75
-  rationale: 'Dry-mass composition is protein-dominant: protein ≈62–75% (Karr 2012 Fig 2C vs Morowitz
-    1962). Test the protein dry-mass fraction is in [0.62, 0.75].'
+  rationale: 'Dry-mass composition is protein-dominant: protein ≈62–75% (Karr 2012 Fig 2C vs Morowitz 1962). Test the protein dry-mass fraction is in [0.62, 0.75].'
   measure:
     kind: derived_scalar
     field: protein_fraction
@@ -111,8 +103,7 @@ expected_behavior:
   en: RNA is a small dry-mass fraction (~5–15%), consistent with Fig 2C.
   observable: rna_fraction
   condition: 0.05 <= rna_fraction <= 0.15
-  rationale: RNA is ≈9% of dry mass (Karr 2012 Fig 2C / Morowitz 1962). Test the RNA dry-mass fraction
-    is in [0.05, 0.15].
+  rationale: RNA is ≈9% of dry mass (Karr 2012 Fig 2C / Morowitz 1962). Test the RNA dry-mass fraction is in [0.05, 0.15].
   measure:
     kind: derived_scalar
     field: rna_fraction
@@ -124,8 +115,7 @@ expected_behavior:
   en: DNA content doubles 1→2 over the cycle as the chromosome replicates (Fig 2D).
   observable: dna_fold_change
   condition: 1.8 <= dna_fold_change <= 2.2
-  rationale: Single-cell DNA content steps from 1× to 2× during S-phase (Karr 2012 Fig 2D). Test DNA fold-change
-    ≈2 over the cycle.
+  rationale: Single-cell DNA content steps from 1× to 2× during S-phase (Karr 2012 Fig 2D). Test DNA fold-change ≈2 over the cycle.
   measure:
     kind: derived_scalar
     field: dna_fold_change
@@ -137,8 +127,7 @@ expected_behavior:
   en: Single-cell mRNA is low-copy (~0–2 per gene), bursty (Fig 2G).
   observable: mean_mrna_per_gene
   condition: 0.0 <= mean_mrna_per_gene <= 2.5
-  rationale: mRNA is present at low, discrete copy numbers (0–2 per gene) due to short half-lives and
-    bursty synthesis (Karr 2012 Fig 2G). Test mean mRNA per gene ≤2.5.
+  rationale: mRNA is present at low, discrete copy numbers (0–2 per gene) due to short half-lives and bursty synthesis (Karr 2012 Fig 2G). Test mean mRNA per gene ≤2.5.
   measure:
     kind: derived_scalar
     field: mean_mrna_per_gene
@@ -150,8 +139,7 @@ expected_behavior:
   en: Across cells, mRNA and protein copy numbers are uncorrelated (Fig 2H).
   observable: mrna_protein_abs_corr
   condition: 0.0 <= mrna_protein_abs_corr <= 0.4
-  rationale: Single-cell mRNA (transient, bursty) and protein (cumulative, long-lived) copy numbers are
-    decoupled — no correlation across a population (Karr 2012 Fig 2H). Test |Pearson r| < 0.4.
+  rationale: Single-cell mRNA (transient, bursty) and protein (cumulative, long-lived) copy numbers are decoupled — no correlation across a population (Karr 2012 Fig 2H). Test |Pearson r| < 0.4.
   measure:
     kind: derived_scalar
     field: mrna_protein_abs_corr
@@ -163,8 +151,7 @@ expected_behavior:
   en: Emergent (Σ species×MW) protein fraction of macromolecular dry mass is plausible (Karr 2012 composition).
   observable: emergent_protein_fraction
   condition: 0.55 <= emergent_protein_fraction <= 0.80
-  rationale: Karr 2012 cell composition puts protein at 0.62 of total dry mass; emergent Σ(species×MW),
-    macromolecule-renormalized target ≈0.70. Test the emergent protein fraction falls in [0.55, 0.80].
+  rationale: Karr 2012 cell composition puts protein at 0.62 of total dry mass; emergent Σ(species×MW), macromolecule-renormalized target ≈0.70. Test the emergent protein fraction falls in [0.55, 0.80].
   measure:
     kind: derived_scalar
     field: emergent_protein_fraction
@@ -176,8 +163,7 @@ expected_behavior:
   en: Emergent (Σ species×MW) DNA fraction of macromolecular dry mass is plausible (Karr 2012 composition).
   observable: emergent_dna_fraction
   condition: 0.10 <= emergent_dna_fraction <= 0.35
-  rationale: Karr 2012 cell composition puts DNA at 0.169 of total dry mass (0.192 renormalized over protein+DNA+RNA).
-    Test the emergent DNA fraction falls in [0.10, 0.35].
+  rationale: Karr 2012 cell composition puts DNA at 0.169 of total dry mass (0.192 renormalized over protein+DNA+RNA). Test the emergent DNA fraction falls in [0.10, 0.35].
   measure:
     kind: derived_scalar
     field: emergent_dna_fraction
@@ -189,8 +175,7 @@ expected_behavior:
   en: Emergent (Σ species×MW) RNA fraction of macromolecular dry mass is plausible (Karr 2012 composition).
   observable: emergent_rna_fraction
   condition: 0.05 <= emergent_rna_fraction <= 0.25
-  rationale: Karr 2012 cell composition puts RNA at 0.093 of total dry mass (0.106 renormalized over protein+DNA+RNA).
-    Test the emergent RNA fraction falls in [0.05, 0.25].
+  rationale: Karr 2012 cell composition puts RNA at 0.093 of total dry mass (0.106 renormalized over protein+DNA+RNA). Test the emergent RNA fraction falls in [0.05, 0.25].
   measure:
     kind: derived_scalar
     field: emergent_rna_fraction
@@ -202,8 +187,7 @@ expected_behavior:
   en: Cell-to-cell CV of total mRNA is nonzero and plausible (Fig 2 single-cell distributions).
   observable: single_cell_mrna_cv
   condition: 0.001 <= single_cell_mrna_cv <= 1.5
-  rationale: Karr 2012 Fig 2 single-cell distributions show bursty low-copy single-cell mRNA, hence nonzero
-    cell-to-cell variation. Test the CV of total mRNA across independent cells falls in [0.001, 1.5].
+  rationale: Karr 2012 Fig 2 single-cell distributions show bursty low-copy single-cell mRNA, hence nonzero cell-to-cell variation. Test the CV of total mRNA across independent cells falls in [0.001, 1.5].
   measure:
     kind: derived_scalar
     field: single_cell_mrna_cv
@@ -212,15 +196,10 @@ expected_behavior:
     low: 0.001
     high: 1.5
 - name: emergent-cell-cycle-length
-  en: The cell-cycle length PREDICTED from the synthesized inventory (time the emergent Σ(species×MW)
-    mass doubles and division fires) is biologically plausible.
+  en: The cell-cycle length PREDICTED from the synthesized inventory (time the emergent Σ(species×MW) mass doubles and division fires) is biologically plausible.
   observable: emergent_doubling_time_h
   condition: 4.0 <= emergent_doubling_time_h <= 12.0
-  rationale: 'Gap 2b (phenotype from genotype): division now fires when the EMERGENT macromolecule inventory
-    doubles, so the cycle length emerges from the synthesis rates rather than the imposed growth-law μ.
-    The reduced model predicts ~6 h — faster than the measured/calibrated ~9 h cycle, because biomass
-    synthesis currently outpaces replication by ~1.5×; a documented rate/cycle- coordination gap. Test
-    the emergent prediction is in the biologically plausible [4, 12] h.'
+  rationale: 'Gap 2b (phenotype from genotype): division now fires when the EMERGENT macromolecule inventory doubles, so the cycle length emerges from the synthesis rates rather than the imposed growth-law μ. The reduced model predicts ~6 h — faster than the measured/calibrated ~9 h cycle, because biomass synthesis currently outpaces replication by ~1.5×; a documented rate/cycle- coordination gap. Test the emergent prediction is in the biologically plausible [4, 12] h.'
   measure:
     kind: derived_scalar
     field: emergent_doubling_time_h
@@ -241,8 +220,7 @@ behavior_tests:
     high: 9.5
     provenance:
       kind: experiment
-      note: M. genitalium doubling time τ ≈ 9.0 h measured (Fig 2A); the simulated median is 8.9 h (Fig
-        2B). Test the exponential-fit doubling time falls in [8.3, 9.5] h.
+      note: M. genitalium doubling time τ ≈ 9.0 h measured (Fig 2A); the simulated median is 8.9 h (Fig 2B). Test the exponential-fit doubling time falls in [8.3, 9.5] h.
   requires_simulation: baseline
 - name: mass-doubles-over-cycle
   classification: primary
@@ -256,8 +234,7 @@ behavior_tests:
     high: 2.2
     provenance:
       kind: model
-      note: A cell doubles its mass between birth and division (Karr 2012 Fig 2B). Test mass fold-change
-        ≈2 over the 9 h cycle.
+      note: A cell doubles its mass between birth and division (Karr 2012 Fig 2B). Test mass fold-change ≈2 over the 9 h cycle.
   requires_simulation: baseline
 - name: protein-dominant-composition
   classification: primary
@@ -271,8 +248,7 @@ behavior_tests:
     high: 0.75
     provenance:
       kind: experiment
-      note: 'Dry-mass composition is protein-dominant: protein ≈62–75% (Karr 2012 Fig 2C vs Morowitz 1962).
-        Test the protein dry-mass fraction is in [0.62, 0.75].'
+      note: 'Dry-mass composition is protein-dominant: protein ≈62–75% (Karr 2012 Fig 2C vs Morowitz 1962). Test the protein dry-mass fraction is in [0.62, 0.75].'
   requires_simulation: baseline
 - name: rna-fraction-small
   classification: secondary
@@ -286,8 +262,7 @@ behavior_tests:
     high: 0.15
     provenance:
       kind: experiment
-      note: RNA is ≈9% of dry mass (Karr 2012 Fig 2C / Morowitz 1962). Test the RNA dry-mass fraction
-        is in [0.05, 0.15].
+      note: RNA is ≈9% of dry mass (Karr 2012 Fig 2C / Morowitz 1962). Test the RNA dry-mass fraction is in [0.05, 0.15].
   requires_simulation: baseline
 - name: dna-doubles-in-s-phase
   classification: primary
@@ -301,8 +276,7 @@ behavior_tests:
     high: 2.2
     provenance:
       kind: model
-      note: Single-cell DNA content steps from 1× to 2× during S-phase (Karr 2012 Fig 2D). Test DNA fold-change
-        ≈2 over the cycle.
+      note: Single-cell DNA content steps from 1× to 2× during S-phase (Karr 2012 Fig 2D). Test DNA fold-change ≈2 over the cycle.
   requires_simulation: baseline
 - name: mrna-low-copy-bursty
   classification: primary
@@ -316,8 +290,7 @@ behavior_tests:
     high: 2.5
     provenance:
       kind: experiment
-      note: mRNA is present at low, discrete copy numbers (0–2 per gene) due to short half-lives and bursty
-        synthesis (Karr 2012 Fig 2G). Test mean mRNA per gene ≤2.5.
+      note: mRNA is present at low, discrete copy numbers (0–2 per gene) due to short half-lives and bursty synthesis (Karr 2012 Fig 2G). Test mean mRNA per gene ≤2.5.
   requires_simulation: baseline
 - name: mrna-protein-decoupled
   classification: primary
@@ -331,8 +304,7 @@ behavior_tests:
     high: 0.4
     provenance:
       kind: experiment
-      note: Single-cell mRNA (transient, bursty) and protein (cumulative, long-lived) copy numbers are
-        decoupled — no correlation across a population (Karr 2012 Fig 2H). Test |Pearson r| < 0.4.
+      note: Single-cell mRNA (transient, bursty) and protein (cumulative, long-lived) copy numbers are decoupled — no correlation across a population (Karr 2012 Fig 2H). Test |Pearson r| < 0.4.
   requires_simulation: baseline
 - name: emergent-mass-protein-fraction
   classification: secondary
@@ -346,8 +318,7 @@ behavior_tests:
     high: 0.8
     provenance:
       kind: experiment
-      note: 'Karr 2012 cell composition: protein 0.62 of total dry mass; emergent Σ(species×MW), macromolecule-renormalized
-        target ≈0.70.'
+      note: 'Karr 2012 cell composition: protein 0.62 of total dry mass; emergent Σ(species×MW), macromolecule-renormalized target ≈0.70.'
   requires_simulation: baseline
 - name: emergent-mass-dna-fraction
   classification: secondary
@@ -361,8 +332,7 @@ behavior_tests:
     high: 0.35
     provenance:
       kind: experiment
-      note: 'Karr 2012 cell composition: DNA 0.169 of total dry mass (0.192 renormalized over protein+DNA+RNA);
-        emergent Σ(species×MW).'
+      note: 'Karr 2012 cell composition: DNA 0.169 of total dry mass (0.192 renormalized over protein+DNA+RNA); emergent Σ(species×MW).'
   requires_simulation: baseline
 - name: emergent-mass-rna-fraction
   classification: secondary
@@ -376,8 +346,7 @@ behavior_tests:
     high: 0.25
     provenance:
       kind: experiment
-      note: 'Karr 2012 cell composition: RNA 0.093 of total dry mass (0.106 renormalized over protein+DNA+RNA);
-        emergent Σ(species×MW).'
+      note: 'Karr 2012 cell composition: RNA 0.093 of total dry mass (0.106 renormalized over protein+DNA+RNA); emergent Σ(species×MW).'
   requires_simulation: baseline
 - name: single-cell-mrna-variation
   classification: secondary
@@ -395,8 +364,7 @@ behavior_tests:
   requires_simulation: baseline
 - name: emergent-cell-cycle-length
   classification: secondary
-  description: Cell-cycle length PREDICTED from the synthesized inventory (emergent-mass doubling) is
-    biologically plausible (gap 2b, phenotype from genotype).
+  description: Cell-cycle length PREDICTED from the synthesized inventory (emergent-mass doubling) is biologically plausible (gap 2b, phenotype from genotype).
   measure:
     kind: derived_scalar
     field: emergent_doubling_time_h
@@ -406,10 +374,7 @@ behavior_tests:
     high: 12.0
     provenance:
       kind: model
-      note: Division now fires when the emergent Σ(species×MW) inventory doubles, so the cycle length
-        emerges from synthesis rates (not the imposed growth-law μ). Reduced model predicts ~6 h — biomass
-        synthesis outpaces the ~9 h replication cycle by ~1.5× (documented rate/cycle- coordination gap).
-        Test the emergent prediction is in the plausible [4, 12] h.
+      note: Division now fires when the emergent Σ(species×MW) inventory doubles, so the cycle length emerges from synthesis rates (not the imposed growth-law μ). Reduced model predicts ~6 h — biomass synthesis outpaces the ~9 h replication cycle by ~1.5× (documented rate/cycle- coordination gap). Test the emergent prediction is in the plausible [4, 12] h.
   requires_simulation: baseline
 readouts:
 - name: mass
@@ -505,3 +470,10 @@ conclusion: 'The viva-Mgen integrated cell reproduces Fig 2''s growth phenotype 
   M. genitalium values.
 
   '
+conditions:
+  baseline:
+    name: baseline
+    composite: viva_mgen.composites.mgen.mycoplasma_genitalium
+    params: {}
+  variants: []
+  model_settings: []
