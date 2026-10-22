@@ -84,12 +84,6 @@ description: 'VARIANT (run complete). Same ingredient roster, structures, geomet
   proteome, not a steady-state or population average.
 
   '
-baseline:
-- name: baseline
-  composite: viva_mgen.composites.structural.mgen_structural
-  params:
-    counts_source: sim
-variants: []
 interventions: []
 expected_behavior:
 - name: structural-sim-cell-comparable-to-baseline
@@ -140,3 +134,11 @@ visualizations:
 - name: baseline-vs-sim
   chart: viz/baseline_vs_sim.html
   render: python scripts/regen_structural_viz.py
+conditions:
+  baseline:
+    name: baseline
+    composite: viva_mgen.composites.structural.mgen_structural
+    params:
+      counts_source: sim
+  variants: []
+  model_settings: []

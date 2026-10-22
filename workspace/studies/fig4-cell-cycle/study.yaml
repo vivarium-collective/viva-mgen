@@ -62,14 +62,6 @@ description: 'REDUCED MECHANISM, GENUINE DYNAMICS. This is a clean-room reproduc
   r(initial DnaA, initiation) = -0.743 (Fig 4C).
 
   '
-baseline:
-- name: baseline
-  composite: viva_mgen.composites.mgen.mycoplasma_genitalium
-  params:
-    initial_dnaA: 5
-    initial_dntp: 0
-    seed: 0
-variants: []
 simulation_set:
 - name: baseline
   status: ran
@@ -420,3 +412,13 @@ conclusion: 'viva-Mgen reproduces Fig 4''s emergent cell-cycle regulation with a
   regulator.
 
   '
+conditions:
+  baseline:
+    name: baseline
+    composite: viva_mgen.composites.mgen.mycoplasma_genitalium
+    params:
+      initial_dnaA: 5
+      initial_dntp: 0
+      seed: 0
+  variants: []
+  model_settings: []

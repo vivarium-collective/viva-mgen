@@ -66,11 +66,6 @@ description: 'HIGH FIDELITY over the metabolic subset. Essentiality is assessed 
   0.000, confirming detection of an essential gene.
 
   '
-baseline:
-- name: baseline
-  composite: viva_mgen.composites.mgen.mycoplasma_genitalium
-  params: {}
-variants: []
 simulation_set:
 - name: baseline
   status: ran
@@ -92,8 +87,7 @@ expected_behavior:
   en: Model-vs-experiment single-gene essentiality accuracy >= ~79%.
   observable: essentiality_accuracy
   condition: 0.78 <= essentiality_accuracy <= 1.0
-  rationale: 'Fig 6A: 79% accuracy (316/401 correct) vs Glass et al. 2006, p<1e-7. (Metabolic-subset FBA
-    currently reaches ~76%.)'
+  rationale: 'Fig 6A: 79% accuracy (316/401 correct) vs Glass et al. 2006, p<1e-7. (Metabolic-subset FBA currently reaches ~76%.)'
   measure:
     kind: derived_scalar
     field: essentiality_accuracy
@@ -129,8 +123,7 @@ expected_behavior:
   en: KO growth-fraction distribution is bimodal (essential~0 / viable~1).
   observable: growth_distribution_bimodal
   condition: growth_distribution_bimodal == 1.0
-  rationale: 'Fig 6/S2: single-gene-KO growth is bimodal — genes are essential (growth~0) or non-essential
-    (growth~1), few intermediate.'
+  rationale: 'Fig 6/S2: single-gene-KO growth is bimodal — genes are essential (growth~0) or non-essential (growth~1), few intermediate.'
   measure:
     kind: derived_scalar
     field: growth_distribution_bimodal
@@ -211,8 +204,7 @@ behavior_tests:
     high: 1.0
     provenance:
       kind: experiment
-      note: 'Fig 6A: 79% accuracy (316/401 correct) vs Glass et al. 2006, p<1e-7. (Metabolic-subset FBA
-        currently reaches ~76%.)'
+      note: 'Fig 6A: 79% accuracy (316/401 correct) vs Glass et al. 2006, p<1e-7. (Metabolic-subset FBA currently reaches ~76%.)'
   requires_simulation: baseline
 - name: essentiality-sensitivity
   classification: primary
@@ -254,8 +246,7 @@ behavior_tests:
     high: 1.0
     provenance:
       kind: model
-      note: 'Fig 6/S2: single-gene-KO growth is bimodal — genes are essential (growth~0) or non-essential
-        (growth~1), few intermediate.'
+      note: 'Fig 6/S2: single-gene-KO growth is bimodal — genes are essential (growth~0) or non-essential (growth~1), few intermediate.'
   requires_simulation: baseline
 - name: pathology-metabolic-non-growing
   classification: primary
@@ -329,9 +320,7 @@ behavior_tests:
   requires_simulation: baseline
 provenance:
   kind: experiment
-  note: Fig 6A of Karr et al. 2012 (single-gene-disruption phenotypes; model vs experiment). Whole-cell
-    essentiality accuracy 79% (Glass et al. 2006 M. genitalium essentiality data); the iPS189 metabolic
-    reconstruction (Suthers et al. 2009) predicts metabolic-gene essentiality at ~87%.
+  note: Fig 6A of Karr et al. 2012 (single-gene-disruption phenotypes; model vs experiment). Whole-cell essentiality accuracy 79% (Glass et al. 2006 M. genitalium essentiality data); the iPS189 metabolic reconstruction (Suthers et al. 2009) predicts metabolic-gene essentiality at ~87%.
 readouts:
 - name: growth_fraction
   store_path: stores/growth_fraction
@@ -397,8 +386,7 @@ embed_visualizations:
   description: Figure 6 reproduced — all subpanels combined as in Karr 2012.
 - name: fig6-b-pathologies
   url: /workspace/studies/fig6-gene-essentiality/viz/fig6b_pathologies.html
-  description: 'Fig 6B: molecular pathologies — Growth/Protein/RNA/DNA/Septum dynamics for WT + a representative
-    disruption of each essential class; red = differs from WT.'
+  description: 'Fig 6B: molecular pathologies — Growth/Protein/RNA/DNA/Septum dynamics for WT + a representative disruption of each essential class; red = differs from WT.'
 - name: fig6-a-confusion
   url: /workspace/studies/fig6-gene-essentiality/viz/fig6_a_confusion.html
   description: 'Figure 6 subpanel: confusion.'
@@ -413,8 +401,7 @@ embed_visualizations:
   description: 'Figure 6 subpanel: performance summary.'
 - name: confusion-matrix
   url: /workspace/studies/fig6-gene-essentiality/viz/confusion_matrix.html
-  description: 2x2 model-vs-reference essentiality confusion matrix over the 125 metabolic genes (Fig
-    6A).
+  description: 2x2 model-vs-reference essentiality confusion matrix over the 125 metabolic genes (Fig 6A).
 - name: accuracy-summary
   url: /workspace/studies/fig6-gene-essentiality/viz/accuracy_summary.html
   description: 'Essentiality prediction performance: accuracy, sensitivity, and specificity as percentages.'
@@ -437,3 +424,10 @@ conclusion: 'viva-Mgen reproduces the Fig 6A single-gene-disruption essentiality
   knockout collapses growth to 0.000.
 
   '
+conditions:
+  baseline:
+    name: baseline
+    composite: viva_mgen.composites.mgen.mycoplasma_genitalium
+    params: {}
+  variants: []
+  model_settings: []

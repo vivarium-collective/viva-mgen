@@ -66,11 +66,6 @@ description: 'Representative / architecture-demonstration fidelity. This study d
   fidelity claim of this study.
 
   '
-baseline:
-- name: baseline
-  composite: viva_mgen.composites.mgen.mycoplasma_genitalium
-  params: {}
-variants: []
 simulation_set:
 - name: baseline
   status: ran
@@ -92,8 +87,7 @@ expected_behavior:
   en: The whole cell integrates ≥28 cellular-process submodels (Fig 1A).
   observable: n_processes
   condition: 28 <= n_processes <= 40
-  rationale: Karr 2012 integrates 28 cellular-process submodels (Fig 1A); the viva-Mgen composite wires
-    30. Test that the integrated cell is composed of ≥28 submodels.
+  rationale: Karr 2012 integrates 28 cellular-process submodels (Fig 1A); the viva-Mgen composite wires 30. Test that the integrated cell is composed of ≥28 submodels.
   measure:
     kind: derived_scalar
     field: n_processes
@@ -102,13 +96,10 @@ expected_behavior:
     low: 28
     high: 40
 - name: shared-variable-integration
-  en: Submodels are integrated through shared cell variables — many stores are read/written by ≥2 processes
-    (Fig 1B).
+  en: Submodels are integrated through shared cell variables — many stores are read/written by ≥2 processes (Fig 1B).
   observable: n_stores_coupled
   condition: 10 <= n_stores_coupled <= 90
-  rationale: Karr 2012 integrates the 28 submodels through ~16 shared cell-variable states each 1 s step
-    (Fig 1B). Test that ≥10 cell variables are coupled across ≥2 processes (real integration, not independent
-    modules).
+  rationale: Karr 2012 integrates the 28 submodels through ~16 shared cell-variable states each 1 s step (Fig 1B). Test that ≥10 cell variables are coupled across ≥2 processes (real integration, not independent modules).
   measure:
     kind: derived_scalar
     field: n_stores_coupled
@@ -120,8 +111,7 @@ expected_behavior:
   en: The integrated cell grows and mass doubles over the 9 h cycle.
   observable: mass_fold_change
   condition: 1.8 <= mass_fold_change <= 2.2
-  rationale: A dividing cell doubles its mass over one cell cycle (Karr 2012 Fig 2B, τ≈9 h). Test mass
-    fold-change ≈2 over the integrated 9 h run.
+  rationale: A dividing cell doubles its mass over one cell cycle (Karr 2012 Fig 2B, τ≈9 h). Test mass fold-change ≈2 over the integrated 9 h run.
   measure:
     kind: derived_scalar
     field: mass_fold_change
@@ -133,8 +123,7 @@ expected_behavior:
   en: Chromosome replication runs to completion over the cycle (replicated fraction → 1).
   observable: replicated_fraction_final
   condition: 0.95 <= replicated_fraction_final <= 1.0
-  rationale: The single chromosome is fully replicated once per cycle (Karr 2012 Fig 4B, chromosome copy
-    1→2). Test replicated_fraction reaches ~1 in the integrated run.
+  rationale: The single chromosome is fully replicated once per cycle (Karr 2012 Fig 4B, chromosome copy 1→2). Test replicated_fraction reaches ~1 in the integrated run.
   measure:
     kind: derived_scalar
     field: replicated_fraction_final
@@ -146,8 +135,7 @@ expected_behavior:
   en: The integrated cell divides — the septum pinches shut by the end of the cycle (Fig 4B).
   observable: divides
   condition: 1.0 <= divides <= 1.0
-  rationale: The whole-cell model terminates each simulation at cell division, when the septum diameter
-    reaches 0 (Karr 2012; cytokinesis ~1.08 h). Test that the integrated cell divides.
+  rationale: The whole-cell model terminates each simulation at cell division, when the septum diameter reaches 0 (Karr 2012; cytokinesis ~1.08 h). Test that the integrated cell divides.
   measure:
     kind: derived_scalar
     field: divides
@@ -159,8 +147,7 @@ expected_behavior:
   en: Transcription produces mRNA in the integrated cell (>0 species).
   observable: mrna_species_produced
   condition: 1 <= mrna_species_produced <= 1000
-  rationale: Gene expression is active in the running cell (Karr 2012 Fig 2G). Test that ≥1 mRNA species
-    is produced by the integrated composite.
+  rationale: Gene expression is active in the running cell (Karr 2012 Fig 2G). Test that ≥1 mRNA species is produced by the integrated composite.
   measure:
     kind: derived_scalar
     field: mrna_species_produced
@@ -172,8 +159,7 @@ expected_behavior:
   en: Translation produces protein in the integrated cell (>0 species).
   observable: protein_species_produced
   condition: 1 <= protein_species_produced <= 1000
-  rationale: Translation is active in the running cell (Karr 2012 Fig 2G/2H). Test that ≥1 protein species
-    is produced by the integrated composite.
+  rationale: Translation is active in the running cell (Karr 2012 Fig 2G/2H). Test that ≥1 protein species is produced by the integrated composite.
   measure:
     kind: derived_scalar
     field: protein_species_produced
@@ -194,13 +180,11 @@ behavior_tests:
     high: 40
     provenance:
       kind: model
-      note: Karr 2012 integrates 28 cellular-process submodels (Fig 1A); the viva-Mgen composite wires
-        30. Test that the integrated cell is composed of ≥28 submodels.
+      note: Karr 2012 integrates 28 cellular-process submodels (Fig 1A); the viva-Mgen composite wires 30. Test that the integrated cell is composed of ≥28 submodels.
   requires_simulation: baseline
 - name: shared-variable-integration
   classification: primary
-  description: Submodels are integrated through shared cell variables — many stores are read/written by
-    ≥2 processes (Fig 1B).
+  description: Submodels are integrated through shared cell variables — many stores are read/written by ≥2 processes (Fig 1B).
   measure:
     kind: derived_scalar
     field: n_stores_coupled
@@ -210,9 +194,7 @@ behavior_tests:
     high: 90
     provenance:
       kind: model
-      note: Karr 2012 integrates the 28 submodels through ~16 shared cell-variable states each 1 s step
-        (Fig 1B). Test that ≥10 cell variables are coupled across ≥2 processes (real integration, not
-        independent modules).
+      note: Karr 2012 integrates the 28 submodels through ~16 shared cell-variable states each 1 s step (Fig 1B). Test that ≥10 cell variables are coupled across ≥2 processes (real integration, not independent modules).
   requires_simulation: baseline
 - name: cell-mass-doubles
   classification: primary
@@ -226,8 +208,7 @@ behavior_tests:
     high: 2.2
     provenance:
       kind: experiment
-      note: A dividing cell doubles its mass over one cell cycle (Karr 2012 Fig 2B, τ≈9 h). Test mass
-        fold-change ≈2 over the integrated 9 h run.
+      note: A dividing cell doubles its mass over one cell cycle (Karr 2012 Fig 2B, τ≈9 h). Test mass fold-change ≈2 over the integrated 9 h run.
   requires_simulation: baseline
 - name: replication-completes
   classification: primary
@@ -241,8 +222,7 @@ behavior_tests:
     high: 1.0
     provenance:
       kind: model
-      note: The single chromosome is fully replicated once per cycle (Karr 2012 Fig 4B, chromosome copy
-        1→2). Test replicated_fraction reaches ~1 in the integrated run.
+      note: The single chromosome is fully replicated once per cycle (Karr 2012 Fig 4B, chromosome copy 1→2). Test replicated_fraction reaches ~1 in the integrated run.
   requires_simulation: baseline
 - name: cell-divides
   classification: primary
@@ -256,8 +236,7 @@ behavior_tests:
     high: 1.0
     provenance:
       kind: model
-      note: The whole-cell model terminates each simulation at cell division, when the septum diameter
-        reaches 0 (Karr 2012; cytokinesis ~1.08 h). Test that the integrated cell divides.
+      note: The whole-cell model terminates each simulation at cell division, when the septum diameter reaches 0 (Karr 2012; cytokinesis ~1.08 h). Test that the integrated cell divides.
   requires_simulation: baseline
 - name: mrna-produced
   classification: secondary
@@ -271,8 +250,7 @@ behavior_tests:
     high: 1000
     provenance:
       kind: model
-      note: Gene expression is active in the running cell (Karr 2012 Fig 2G). Test that ≥1 mRNA species
-        is produced by the integrated composite.
+      note: Gene expression is active in the running cell (Karr 2012 Fig 2G). Test that ≥1 mRNA species is produced by the integrated composite.
   requires_simulation: baseline
 - name: protein-produced
   classification: secondary
@@ -286,8 +264,7 @@ behavior_tests:
     high: 1000
     provenance:
       kind: model
-      note: Translation is active in the running cell (Karr 2012 Fig 2G/2H). Test that ≥1 protein species
-        is produced by the integrated composite.
+      note: Translation is active in the running cell (Karr 2012 Fig 2G/2H). Test that ≥1 protein species is produced by the integrated composite.
   requires_simulation: baseline
 readouts:
 - name: mass
@@ -343,8 +320,7 @@ visualizations:
 embed_visualizations:
 - name: fig1-combined
   url: /workspace/studies/fig1-architecture/viz/fig1_combined.html
-  description: 'Figure 1 reproduced — whole-cell integration: 28-submodel architecture, wiring matrix,
-    and integrated 9 h dynamics.'
+  description: 'Figure 1 reproduced — whole-cell integration: 28-submodel architecture, wiring matrix, and integrated 9 h dynamics.'
 - name: fig1-a-architecture
   url: /workspace/studies/fig1-architecture/viz/fig1_a_architecture.html
   description: 'Fig 1A: sunburst of the 28 submodels grouped by process category.'
@@ -371,3 +347,10 @@ conclusion: 'viva-Mgen reproduces Fig 1''s architecture as a runnable integrated
   expression phenotype.
 
   '
+conditions:
+  baseline:
+    name: baseline
+    composite: viva_mgen.composites.mgen.mycoplasma_genitalium
+    params: {}
+  variants: []
+  model_settings: []
