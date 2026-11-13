@@ -20,7 +20,7 @@
   <div style="display:flex; align-items:center; gap:14px; justify-content:space-between;">
   <div style="display:flex; align-items:center; gap:12px; min-width:0; flex-wrap:wrap">
   <h1 class="study-title" style="margin:0">
-    <span class="study-name" id="study-name" data-slug="fig5-energy" data-study-kind="computational" title="fig5-energy">Fig 5 — Global distribution of cellular energy: ATP &gt; GTP synthesis and a translation-dominated budget</span>
+    <span class="study-name" id="study-name" data-slug="fig5-energy" data-study-kind="computational" title="fig5-energy" data-edit-kind="study" data-edit-field="title" data-edit-value="Fig 5 — Global distribution of cellular energy: ATP &gt; GTP synthesis and a translation-dominated budget" data-edit-label="Title">Fig 5 — Global distribution of cellular energy: ATP &gt; GTP synthesis and a translation-dominated budget</span>
     
   </h1>
     
@@ -50,11 +50,15 @@
 
 
 
-<p id="study-question-headline" class="study-question-headline"><span class="q-glyph">Q</span> Does the reduced viva-Mgen cell reproduce Fig 5&#39;s global energy picture — that
+<p id="study-question-headline" class="study-question-headline"><span class="q-glyph">Q</span> <span class="study-question-headline-text" data-edit-kind="study" data-edit-field="question" data-edit-value="Does the reduced viva-Mgen cell reproduce Fig 5&#39;s global energy picture — that
 ATP and GTP are the dominant synthesized carriers with ATP &gt; GTP (Fig 5A), and
 that the cellular energy budget is dominated by translation, ahead of
 transcription (Fig 5D)?
-</p>
+" data-edit-multiline data-edit-label="Question">Does the reduced viva-Mgen cell reproduce Fig 5&#39;s global energy picture — that
+ATP and GTP are the dominant synthesized carriers with ATP &gt; GTP (Fig 5A), and
+that the cellular energy budget is dominated by translation, ahead of
+transcription (Fig 5D)?
+</span></p>
 
 <nav class="study-tabs" aria-label="Study sections">
   
@@ -239,6 +243,9 @@ transcription (Fig 5D)?
 /* findings */
 .findings-section{padding:14px 16px;background:#fafbff;border:1px solid #c7d2fe;border-radius:8px}
 .finding-card{padding:12px 14px;margin:10px 0;border:1px solid #e2e8f0;border-left:5px solid #6366f1;border-radius:6px;background:#fff}
+/* Brief highlight when an item is reached via a ?ev= evidence deep-link. */
+.ev-flash{animation:ev-flash-kf 1.9s ease-out;scroll-margin-top:12px}
+@keyframes ev-flash-kf{0%{box-shadow:0 0 0 3px #fbbf24}70%{box-shadow:0 0 0 3px rgba(251,191,36,0.45)}100%{box-shadow:0 0 0 0 rgba(251,191,36,0)}}
 .finding-card.finding-status-confirms{border-left-color:#10b981}
 .finding-card.finding-status-partial{border-left-color:#f59e0b}
 .finding-card.finding-status-contradicts{border-left-color:#dc2626}
@@ -547,7 +554,7 @@ transcription (Fig 5D)?
 
     <div class="ctr-block">
       <h2 class="overview-label ctr-h">Claim</h2>
-      <p class="ctr-text">Does the reduced viva-Mgen cell reproduce Fig 5&#39;s global energy picture — that
+      <p class="ctr-text" data-edit-kind="study" data-edit-field="claim" data-edit-value="" data-edit-multiline data-edit-label="Claim">Does the reduced viva-Mgen cell reproduce Fig 5&#39;s global energy picture — that
 ATP and GTP are the dominant synthesized carriers with ATP &gt; GTP (Fig 5A), and
 that the cellular energy budget is dominated by translation, ahead of
 transcription (Fig 5D)?
@@ -559,12 +566,22 @@ transcription (Fig 5D)?
     <div class="ctr-block">
       <h2 class="overview-label ctr-h">Background</h2>
       <div class="ctr-meta">
-        <div class="ctr-meta-row"><span class="ctr-meta-k">Question</span> <span class="ctr-meta-item">Does the reduced viva-Mgen cell reproduce Fig 5&#39;s global energy picture — that
+        <div class="ctr-meta-row"><span class="ctr-meta-k">Question</span> <span class="ctr-meta-item" data-edit-kind="study" data-edit-field="question" data-edit-value="Does the reduced viva-Mgen cell reproduce Fig 5&#39;s global energy picture — that
+ATP and GTP are the dominant synthesized carriers with ATP &gt; GTP (Fig 5A), and
+that the cellular energy budget is dominated by translation, ahead of
+transcription (Fig 5D)?
+" data-edit-multiline data-edit-label="Question">Does the reduced viva-Mgen cell reproduce Fig 5&#39;s global energy picture — that
 ATP and GTP are the dominant synthesized carriers with ATP &gt; GTP (Fig 5A), and
 that the cellular energy budget is dominated by translation, ahead of
 transcription (Fig 5D)?
 </span></div>
-        <div class="ctr-meta-row"><span class="ctr-meta-k">Hypothesis</span> <span class="ctr-meta-item">FBA over iPS189 should carry far more flux through ATP synthase (ATPS4r) than
+        <div class="ctr-meta-row"><span class="ctr-meta-k">Hypothesis</span> <span class="ctr-meta-item" data-edit-kind="study" data-edit-field="hypothesis" data-edit-value="FBA over iPS189 should carry far more flux through ATP synthase (ATPS4r) than
+through the GTP-producing kinases, giving ATP &gt; GTP &gt; 0. And because each
+peptide bond costs ~2 GTP and translation events vastly outnumber transcription
+events (mRNA accumulates and each transcript is translated many times over),
+the modeled expression energy should be overwhelmingly translation, matching
+the ordering translation &gt;&gt; transcription in Fig 5D.
+" data-edit-multiline data-edit-label="Hypothesis">FBA over iPS189 should carry far more flux through ATP synthase (ATPS4r) than
 through the GTP-producing kinases, giving ATP &gt; GTP &gt; 0. And because each
 peptide bond costs ~2 GTP and translation events vastly outnumber transcription
 events (mRNA accumulates and each transcript is translated many times over),
@@ -577,7 +594,12 @@ the ordering translation &gt;&gt; transcription in Fig 5D.
 
     <div class="ctr-block">
       <h2 class="overview-label ctr-h">Model &amp; approach</h2>
-      <p class="ctr-text">Run the fig5_energy composite for one hour (metabolism/mass at 60 s,
+      <p class="ctr-text" data-edit-kind="study" data-edit-field="objective" data-edit-value="Run the fig5_energy composite for one hour (metabolism/mass at 60 s,
+expression at 1 s) to time-average ATP/GTP production, then step the
+transcription and translation processes directly for one hour to tally their
+NTP/GTP consumption, and compute the modeled energy shares and the ATP:GTP
+synthesis ratio.
+" data-edit-multiline data-edit-label="Objective">Run the fig5_energy composite for one hour (metabolism/mass at 60 s,
 expression at 1 s) to time-average ATP/GTP production, then step the
 transcription and translation processes directly for one hour to tally their
 NTP/GTP consumption, and compute the modeled energy shares and the ATP:GTP
@@ -598,7 +620,8 @@ synthesis ratio.
 
     <div class="ctr-block">
       <h2 class="overview-label ctr-h">Result</h2>
-      <p class="ctr-text"></p>
+      
+      <p class="ctr-text" data-edit-kind="study" data-edit-field="result" data-edit-value="" data-edit-multiline data-edit-label="Result"></p>
       
       
       
@@ -890,6 +913,12 @@ synthesis ratio.
 <div class="overview-section" id="results-section">
   
   <div id="results-summary" data-study="fig5-energy" style="margin:0 0 16px"></div>
+
+  
+  <div id="gate-results-section" data-study="fig5-energy" style="margin:0 0 22px" hidden>
+    <h4>Gate results <span class="muted" style="font-size:0.8em;font-weight:normal">— each acceptance test's value, graded from run data</span></h4>
+    <div id="gate-results"></div>
+  </div>
 
   <h4>Latest run preview <span class="muted" style="font-size:0.8em;font-weight:normal">— downsampled sparkline + first/last/min/max per store</span></h4>
   <div id="results-preview" data-study="fig5-energy">
@@ -1429,7 +1458,17 @@ pass_if: {"high": 0.15, "low": 0.0, "op": "range", "provenance": {"kind": "model
     
     <div class="decide-section" style="margin-top:18px">
       <h3 class="overview-label">Conclusion</h3>
-      <div class="conclusion-md" style="background:#f8fafc;padding:12px;border-left:3px solid #94a3b8;border-radius:3px;font-size:0.9em;line-height:1.5"><p>The viva-Mgen cell reproduces Fig 5's qualitative energy picture at reduced
+      <div class="conclusion-md" style="background:#f8fafc;padding:12px;border-left:3px solid #94a3b8;border-radius:3px;font-size:0.9em;line-height:1.5" data-edit-kind="study" data-edit-field="conclusion" data-edit-value="The viva-Mgen cell reproduces Fig 5&#39;s qualitative energy picture at reduced
+fidelity. Fig 5A: ATP synthesis flux (0.813) exceeds GTP (0.202) by 4.03×, both
+positive — ATP and GTP are the dominant synthesized carriers. Fig 5D: of the
+modeled expression energy, translation takes 96.8% (9.83M GTP/h) versus
+transcription&#39;s 3.2% (0.32M NTP/h), reproducing the translation &gt;&gt; transcription
+ordering. Caveat: only ATP/GTP among carriers are modeled and only transcription/
+translation contribute to the tallied budget — NAD/FAD/NADP and tRNA-aminoacylation
+are absent — so the reduced shares (96.8/3.2 of modeled energy) diverge from the
+paper&#39;s exact 29/15/7/44 whole-cell split. The Fig 5D donut&#39;s ~44% &#34;unaccounted&#34;
+slice is a fixed representative value shown only to echo the paper&#39;s structure.
+" data-edit-multiline data-edit-label="Conclusion"><p>The viva-Mgen cell reproduces Fig 5's qualitative energy picture at reduced
 fidelity. Fig 5A: ATP synthesis flux (0.813) exceeds GTP (0.202) by 4.03×, both
 positive — ATP and GTP are the dominant synthesized carriers. Fig 5D: of the
 modeled expression energy, translation takes 96.8% (9.83M GTP/h) versus
@@ -1523,11 +1562,12 @@ and a translation-dominated expression budget — at reduced fidelity.
 </section>
 
 </main>
-<script>window.__DASH_CONFIG__ = { mode: "snapshot", interactiveUrl: "https://github.com/vivarium-collective/viva-mgen", basePath: "/viva-mgen/dashboard", inputsDownloadBase: "https://github.com/vivarium-collective/viva-mgen/raw/main", provenance: {"repo_slug": "vivarium-collective/viva-mgen", "repo_url": "https://github.com/vivarium-collective/viva-mgen", "commit": "10bca75df18a5982d15881312eb2687e37063484", "commit_url": "https://github.com/vivarium-collective/viva-mgen/commit/10bca75df18a5982d15881312eb2687e37063484", "branch": "main", "lockfile": "uv.lock@6a0a27077c67", "generated_at": "2026-10-28 01:26 UTC"} };</script>
+<script>window.__DASH_CONFIG__ = { mode: "snapshot", interactiveUrl: "https://github.com/vivarium-collective/viva-mgen", basePath: "/viva-mgen/dashboard", inputsDownloadBase: "https://github.com/vivarium-collective/viva-mgen/raw/main", provenance: {"repo_slug": "vivarium-collective/viva-mgen", "repo_url": "https://github.com/vivarium-collective/viva-mgen", "commit": "66d6c1480ad8008a9b091c51499c55771590b53c", "commit_url": "https://github.com/vivarium-collective/viva-mgen/commit/66d6c1480ad8008a9b091c51499c55771590b53c", "branch": "main", "lockfile": "uv.lock@b9edaa971525", "generated_at": "2026-11-13 03:42 UTC"} };</script>
 <script src="/viva-mgen/dashboard/assets/data-source.js"></script>
 <script src="/viva-mgen/dashboard/assets/toast.js"></script>
 <script>
 window._studyName = "fig5-energy";
+window.__STUDY_INVESTIGATION__ = "mgen";  // owning investigation (feedback save routing)
 window._study = null;  // populated by _bootstrapStudy() in study-detail.js
 
 // Save handler for the Conditions → Model settings editable rows.
@@ -1656,6 +1696,8 @@ window._seedFollowupProposal = _seedFollowupProposal;
 <script src="/viva-mgen/dashboard/assets/progress-track.js"></script>
 <script src="/viva-mgen/dashboard/assets/comparison-view.js"></script>
 <script src="/viva-mgen/dashboard/assets/study-detail.js"></script>
+<script src="/viva-mgen/dashboard/assets/study-feedback.js"></script>
+<script src="/viva-mgen/dashboard/assets/inline-edit.js"></script>
 <script>
 // Re-assert the refresh-aware seed handlers AFTER study-detail.js (which
 // defines its own navigate-away _seedFollowupStudy). The embedded
