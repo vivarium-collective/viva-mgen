@@ -1,0 +1,18 @@
+<!doctype html><html><head><meta charset="utf-8">
+<title>Maritan baseline — 3D cell</title>
+<style>
+  html,body{margin:0;background:#0d1017;color:#e7ecf3;font-family:Inter, -apple-system, Segoe UI, Helvetica, Arial, sans-serif}
+  #bar{padding:9px 12px;font-size:12.5px;color:#8b98ad;display:flex;align-items:center;gap:8px}
+  #bar b{color:#e7ecf3} #bar .grow{flex:1}
+  #pop{color:#e7ecf3;text-decoration:none;border:1px solid rgba(139,152,173,0.14);border-radius:7px;
+    padding:4px 10px;font-size:12px;background:rgba(94,176,255,.12)}
+  #pop:hover{background:rgba(94,176,255,.25)}
+  /* Fixed stage height so the workbench's iframe auto-fit grows the frame tall. */
+  #frame{display:block;width:100%;height:640px;border:0}
+</style></head><body>
+<div id="bar"><b>3D Maritan baseline cell</b>
+  <span>— real molecular meshes · open the <b>panel</b> and use <b>section</b> (plane + position) to slice into the cell</span>
+  <span class="grow"></span>
+  <a id="pop" href="/parsimony-viewer/?file=/workspace/studies/s01-maritan-baseline/viz/3d/mgen_maritan_baseline.pack.json" target="_blank" rel="noopener">⛶ full-window ↗</a></div>
+<iframe id="frame" src="/parsimony-viewer/?file=/workspace/studies/s01-maritan-baseline/viz/3d/mgen_maritan_baseline.pack.json" allow="xr-spatial-tracking"></iframe>
+</body></html>
