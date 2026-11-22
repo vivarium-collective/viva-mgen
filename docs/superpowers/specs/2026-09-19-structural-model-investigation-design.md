@@ -108,7 +108,7 @@ pack is a first-class workspace composite (mirrors `ecoli_3d/composite.py` /
 
 ## 5. Investigation & studies
 
-Create via `/viva-investigation new structural-model` (draft PR, `investigation:`
+Create via `/viva:investigate new structural-model` (draft PR, `investigation:`
 title prefix per `AGENTS.md`). Two studies:
 
 - **`s01-maritan-baseline`** — Maritan roster + structures + S2 genome +
@@ -123,7 +123,7 @@ title prefix per `AGENTS.md`). Two studies:
 ## 6. Viewer / report wiring
 
 Publish each pack to the bundled `pbg_parsimony` viewer and register a
-workspace **Visualization** pointing at the pack (`/viva-viz` or a direct
+workspace **Visualization** pointing at the pack (`/viva:viz` or a direct
 `workspace.yaml` entry), so both cells are browsable from the dashboard already
 GitHub-Pages-published. A reproducible build/publish script under
 `viva_mgen/structural/publish/` (thin analog of `ecoli_3d/publish/`).
