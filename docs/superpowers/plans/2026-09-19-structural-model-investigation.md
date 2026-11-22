@@ -330,15 +330,15 @@ class/signature conventions of an existing `viva_mgen` process. `counts_source
 - Modify: `workspace.yaml` (`visualizations:` entry pointing at the packs)
 
 **Interfaces:**
-- Consumes: everything above; the `/viva-investigation`, `/viva-study`, `/viva-viz`, `/viva-report` skills.
+- Consumes: everything above; the `/viva:investigate`, `/viva:study`, `/viva:viz`, `/viva:report` skills.
 
-- [ ] **Step 1:** `/viva-investigation new structural-model` — title
+- [ ] **Step 1:** `/viva:investigate new structural-model` — title
 `investigation: structural-model — a 3D structural model of M. genitalium with viva-parsimony`; set the question/hypothesis from the spec; **draft PR** per AGENTS.md.
-- [ ] **Step 2:** `/viva-study` create `s01-maritan-baseline` — baseline composite drives `MgenStructuralStep(counts_source="maritan")`; `expected_behavior`/`behavior_tests`: species-placed count vs roster, cytoplasm volume-occupancy in Maritan's reported range, membrane proteins in the bilayer, one supercoiled chromosome. Add fidelity caveats.
-- [ ] **Step 3:** Run it: `PARSIMONY_HOME=~/code/parsimony` then `/viva-study run` (or the canonical `sims/run.py`) → pack recorded; record the run.
-- [ ] **Step 4:** `/viva-study` create `s02-reproduction-driven` — same roster, `counts_source="sim"` from a `viva_mgen` steady-state run; acceptance compares occupancy + per-category species counts to s01. Run it.
-- [ ] **Step 5:** `/viva-viz` — register a Visualization per study pointing at the pack + the bundled `pbg_parsimony` viewer; add to `workspace.yaml` `visualizations:`. Add a `publish/` script that builds both packs reproducibly and copies them where the viewer/report reads them.
-- [ ] **Step 6:** `/viva-report` (Pass A + B) to fold both studies into the investigation report; verify the packed cells are browsable from the dashboard.
+- [ ] **Step 2:** `/viva:study` create `s01-maritan-baseline` — baseline composite drives `MgenStructuralStep(counts_source="maritan")`; `expected_behavior`/`behavior_tests`: species-placed count vs roster, cytoplasm volume-occupancy in Maritan's reported range, membrane proteins in the bilayer, one supercoiled chromosome. Add fidelity caveats.
+- [ ] **Step 3:** Run it: `PARSIMONY_HOME=~/code/parsimony` then `/viva:study run` (or the canonical `sims/run.py`) → pack recorded; record the run.
+- [ ] **Step 4:** `/viva:study` create `s02-reproduction-driven` — same roster, `counts_source="sim"` from a `viva_mgen` steady-state run; acceptance compares occupancy + per-category species counts to s01. Run it.
+- [ ] **Step 5:** `/viva:viz` — register a Visualization per study pointing at the pack + the bundled `pbg_parsimony` viewer; add to `workspace.yaml` `visualizations:`. Add a `publish/` script that builds both packs reproducibly and copies them where the viewer/report reads them.
+- [ ] **Step 6:** `/viva:report` (Pass A + B) to fold both studies into the investigation report; verify the packed cells are browsable from the dashboard.
 - [ ] **Step 7: Commit** — study YAMLs, runs, viz wiring, publish script: `git commit -m "feat(structural): structural-model investigation — maritan-baseline + reproduction-driven studies, packed + viewable"`
 
 ---
