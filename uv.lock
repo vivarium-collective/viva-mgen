@@ -2901,7 +2901,7 @@ workspace = [
 
 [package.metadata]
 requires-dist = [
-    { name = "bigraph-schema" },
+    { name = "bigraph-schema", specifier = "<1.8.4" },
     { name = "bigraph-viz", marker = "extra == 'workspace'", specifier = ">=2.0.3" },
     { name = "cobra" },
     { name = "jinja2", marker = "extra == 'workspace'", specifier = ">=3.1" },
